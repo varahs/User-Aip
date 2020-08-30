@@ -1,0 +1,56 @@
+<div class="jumbotron full-height">
+	<div class="container">
+
+
+
+		<div class="form-group row">
+			<div class="col-sm-3">Approver email address <span style="color:red">*</span></div>
+			<div class="col-sm-6" >
+				<input class="form-control" name="approval_mail" type="email"
+					ng-model="approver"
+					placeholder="eg. approver@email.com" required>				
+			</div>
+			<div class="col-sm-3">
+				<button class="btn btn-green" ng-click="download(approver)">Download Report</button>
+			</div>
+
+		</div>
+		
+		<div class="card">
+			<table class="table table-striped">
+				<thead class="table-header-green">
+					<tr>
+						<th>Ticket No.</th>
+						<th>Created By</th>
+						<th>Request Date</th>
+						<th>Status</th>
+						<th>Intake ID</th>
+						<th>Jira ID</th>
+						<th>Approve/Reject By</th>
+						<th>Approval Date</th>
+						<th>Document</th>
+					</tr>
+				</thead>
+
+				<tr ng-repeat="requestItem in requests">
+					<td><a href="#approver?ticketno={{requestItem.requestId}}"> {{requestItem.requestId}} <i
+							class="fa fa-external-link" aria-hidden="true"></i>
+					</a></td>
+					<td>{{requestItem.createdBy}}</td>
+					<td>{{requestItem.requestDate}}</td>
+					<td>{{requestItem.status}}</td>
+					<td>{{requestItem.intakeId}}</td>
+					<td>{{requestItem.jiraId}}</td>
+					<td>{{requestItem.approvedBy || 'NA'}} </td>
+					<td>{{requestItem.approvedDate || 'NA'}}</td>
+					<td><a href="download/file/{{requestItem.path}}" ng-hide="{{requestItem.path.length==0}}"> Open File <i
+						class="fa fa-external-link" aria-hidden="true"></i>
+				</tr>
+			</table>
+		</div>
+
+
+
+
+	</div>
+</div>

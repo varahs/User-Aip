@@ -1,0 +1,121 @@
+
+
+<body>
+   <div class="jumbotron">
+      <div class="container width-75">
+         <div class="card p-3 font-medium">
+            <div class="card-body">
+               <div ng-controller="RequestPageController">
+              
+                  <form ng-submit="submitForm()" name="myForm">
+
+                     <!-- Ticket Number -->
+                     <div class="form-group row">
+                        <label for="ticketNo" class="col-sm-3 col-form-label">Ticket Number </label>
+                        <div class="col-sm-9">
+                           <input class="form-control-plaintext ticket-no" type="text" readonly class="form-control-plaintext ticket-no" id="ticketNo"
+                              value="{{ticket_no}}">
+                        </div>
+                     </div>
+
+                     <!-- {{ ticket_no }} -->
+                     <div class="form-group row">
+                     <a class="m-3" href="#/view">Open Existing Ticket <i class="fa fa-external-link" aria-hidden="true"></i></a>
+                     </div>
+
+
+                     <!-- Created By -->
+                     <div class="form-group row">
+                        <label for="createdBy" class="col-sm-3 col-form-label">Created By <span style="color:red">*</span></label>
+                        <div class="col-sm-9">
+                           <input class="form-control" name="created_by"  class="form-control" type="email" ng-model="Formdata.createdBy"
+                              placeholder="someone@gmail.com" required>
+                            
+                </div>
+                     </div>
+                     <!-- Executed On PU -->
+                     <div class="form-group row">
+                        <label for="executeOnPU" class="col-sm-3 col-form-label">Execute On PU <span style="color:red">*</span></label>
+                        <div class="col-sm-9">
+                           <!-- Radio Button -->
+                           <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                              <label class="btn custom-btn-light " ng-click="toggleRadio('Yes')">
+                                 <input class="form-control" type="radio" id="yes" name="executed_on_pu" ng-model="Formdata.executed"
+                                    value="yes" checked >Yes
+                              </label>
+                              <label class="btn custom-btn-light active" ng-click="toggleRadio('No')">
+                                 <input class="form-control" type="radio" id="no" name="executed_on_pu" ng-model="Formdata.executed"
+                                    value="no">No
+                              </label>
+								
+                           </div>
+                        </div>
+                     </div>
+
+                     <!-- Intake Id -->
+                     <div class="form-group row">
+                        <label for="intake_id" class="col-sm-3 col-form-label">Intake Id <span style="color:red">*</span></label>
+                        <div class="col-sm-9">
+                           <input class="form-control"  name="intake_id" type="text" ng-model="Formdata.intakeId" length="100"
+                              placeholder="eg. 3002" required> </div>
+                     </div>
+
+                  
+                     <!-- Release Id -->
+                     <div class="form-group row">
+                        <label for="release_id" class="col-sm-3 col-form-label">Release Id <span style="color:red">*</span></label>
+                        <div class="col-sm-9">
+                           <input class="form-control" name="release_id" type="text" ng-model="Formdata.releaseId" length="100"
+                              placeholder="Current Release" required> </div>
+                     </div>
+                 
+
+
+                     <!-- Jira Id -->
+                     <div class="form-group row">
+                        <label for="jira_id" class="col-sm-3 col-form-label">JiraId <span style="color:red">*</span></label>
+                        <div class="col-sm-9">
+                           <input class="form-control"  name="jira_id" type="text" ng-model="Formdata.jiraId" length="100"
+                              placeholder="eg..7374  " required> </div>
+                     </div>
+
+              
+
+                     <!-- SQL Query -->
+                     <div class="form-group row">
+                        <label for="sqlQuery" class="col-sm-3 col-form-label">Sql Query <span style="color:red">*</span></label>
+                        <div class="col-sm-9">
+                           <textarea class="form-control" name="sql_query" ng-model="Formdata.query"  rows="6" cols="50"
+                              placeholder="Enter Query to be approved" required>
+                            </textarea>
+                           
+                  
+                            </div>
+                     </div>
+
+					 <!-- Document Upload -->
+                     <div class="form-group row">
+                        <label for="documentUpload" class="col-sm-3 col-form-label">Upload File*</label>
+                        <div class="col-sm-9">
+                       	 <input type = "file" file-model = "myFile"/>
+							<!-- <button ng-click = "uploadFile()">upload me</button> 
+                            </div> -->
+                     </div>
+
+                   
+                        <div class="mt-5">
+                           <div class="d-flex justify-content-center">
+                             
+                           <input class="btn btn-lg btn-green m-1" type="Submit" value="Submit">     
+                            
+                          
+                              <button class="btn btn-lg btn-secondary m-1" ng-click="reset()">Clear</button>
+                        </div>
+                        </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</body>

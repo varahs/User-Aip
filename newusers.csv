@@ -1,0 +1,5 @@
+"TicketNo","CreatedBy","JiraID","ExecutedonPU","ReleaseId","SqlQuery","Status","IntakeId","Approvaldate","RequestDate","ApprovedBy","Comment"
+"1","A","100","no","1000","select * from universe","pending","","","",
+"2","B","200","no","2000","select * from users","pending","","","",
+"3","C","300","yes","3000","select * from student","pending","","","",
+"4","D","400","yes","4000","select * from Students","pending","","","",

@@ -1,0 +1,69 @@
+.body{
+    font-family: 'Roboto', sans-serif;
+    background-color:#e9ecef;
+    height: 100vh;
+}
+
+.bg-green{
+    background-color: #249d57;
+}
+.btn-green{
+	color:white;
+	background-color: #249d57;
+}
+.btn-green:hover{
+	color:white;
+	background-color: #219651;
+}
+
+.full-height{
+    height: 100vh;
+
+}
+
+
+.form-control:focus {
+	color: #495057;
+	background-color: #fff;
+	border-color: #80ff8e;
+	outline: 0;
+	box-shadow: 0 0 0 .2rem rgba(0,123,255,.25);
+}
+.col-form-label{
+    color: black;
+}
+.width-75{
+    width: 75%;
+}
+
+.ticket-no{
+    color: #187741;
+}
+.table-header-green{
+	color:white;
+	background-color: #1cb348;
+}
+.font-medium{
+    font-weight:500;
+}
+.custom-btn-light {
+	color: #212529;
+	background-color: #c9d9c6a3;
+	border-color: #b7ccbb;
+}
+.custom-btn-light:hover {
+	color: #212529;
+	background-color: #e2e6ea;
+	border-color: #dae0e5;
+}
+.custom-btn-light:not(:disabled):not(.disabled).active, .custom-btn-light:not(:disabled):not(.disabled):active, .show > .custom-btn-light.dropdown-toggle {
+	color: #fff;
+	background-color: #38c172;
+	border-color: #38c170;
+}
+
+@media only screen and (max-width: 1024px) {
+	.width-75{
+    width: 95%;
+}
+}

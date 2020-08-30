@@ -1,0 +1,153 @@
+<div>
+
+	<div class="jumbotron">
+		<div class="container width-75">
+			<div class="card p-3 font-medium">
+				<div class="card-body">
+
+
+
+
+					<div ng-controller="ApprovePageController">
+						<form name="requestForm" novalidate>
+							<div>
+
+								<!-- Ticket Number -->
+								<div class="form-group row">
+									<label for="ticketNo" class="col-sm-3 col-form-label">Ticket
+										Number </label>
+									<div class="col-sm-9">
+										<input class="form-control-plaintext ticket-no" type="text"
+											readonly class="form-control-plaintext ticket-no"
+											id="ticketNo" value="{{ value.requestId }}">
+									</div>
+								</div>
+
+
+
+								<!-- Executed On PU -->
+								<div class="form-group row">
+									<label for="executeOnPU" class="col-sm-3 col-form-label">Execute
+										On PU</label>
+									<div class="col-sm-9">
+										<!-- Radio Button -->
+										<div ng-disabled="true" class="btn-group btn-group-toggle " data-toggle="buttons">
+											<label class="btn custom-btn-light " ng-class="{'active':value.executed=='Yes'}"> <input
+												class="form-control" type="radio" id="yes"
+												name="executed_on_pu" ng-model="Formdata.executed"
+												value="yes">Yes
+											</label> <label class="btn custom-btn-light " ng-class="{'active':value.executed=='No'}"> <input
+												class="form-control" type="radio" id="no"
+												name="executed_on_pu" ng-model="Formdata.executed"
+												value="no">No
+											</label>
+										</div>
+									</div>
+								</div>
+
+
+								<!-- Created by -->
+								<div class="form-group row">
+									<div class="col-sm-3">Created By :</div>
+									<div class="col-sm-9">{{ value.createdBy }}</div>
+								</div>
+
+								<!-- Requested Date -->
+								<div class="form-group row">
+									<div class="col-sm-3">Request Date :</div>
+									<div class="col-sm-9">{{ value.requestDate }}</div>
+								</div>
+
+
+								<!-- Intake Id -->
+								<div class="form-group row">
+									<div class="col-sm-3">Intake ID :</div>
+									<div class="col-sm-9">{{ value.intakeId }}</div>
+								</div>
+
+								<div class="form-group row">
+									<div class="col-sm-3">Approve by <span style="color:red">*</span></div>
+									<div class="col-sm-9" >
+										<div ng-if="value.status == 'Pending'">
+										<input class="form-control" name="approval_mail" type="email"
+											ng-model="value.approvedBy"
+											placeholder="eg. approver@email.com" required>
+										</div>
+										<div  ng-if="value.status != 'Pending'">
+										{{ value.approvedBy }}
+										</div>
+										
+									</div>
+									
+
+								</div>
+
+								<!-- Jira Id -->
+								<div class="form-group row">
+									<div class="col-sm-3">Jira ID :</div>
+									<div class="col-sm-9">{{ value.jiraId }}</div>
+								</div>
+
+								<!-- Release Id -->
+								<div class="form-group row">
+									<div class="col-sm-3">Release ID :</div>
+									<div class="col-sm-9">{{ value.releaseId }}</div>
+								</div>
+
+
+
+								<!-- SQL query -->
+								<div class="form-group row">
+									<div class="p-2">SQL Query :</div>
+									<div class="w-100 p-2">
+
+										<textarea ng-disabled="true" class="form-control">{{ value.query }}
+                  						</textarea>
+									</div>
+								</div>
+
+
+
+
+								<!-- Comment -->
+								<div class="form-group row">
+									<div class="p-2">Comment :</div>
+									<div class="w-100 p-2">
+										<textarea ng-disabled="value.status != 'Pending'" class="w-100 form-control" name="comment"
+											ng-model="value.comment" required="true" rows="2" cols="50"
+											placeholder="{{value.comment || 'No Comment'}}">
+                              </textarea>
+										<span style="color: red"
+											ng-show="requestForm.sql_query.$dirty && requestForm.sql_query.$invalid">
+											<span ng-show="requestForm.sql_query.$error.required">sql_query
+												is required.</span>
+										</span>
+									</div>
+								</div>
+
+
+
+
+
+
+
+							</div>
+							<div class="mt-5">
+								<div class="d-flex justify-content-center">
+									<button ng-disabled="value.status != 'Pending'" class="btn btn-green m-1 rounded-0" type="button"
+										ng-click="approve(value)">Approve</button>
+									<button ng-disabled="value.status != 'Pending'" class="btn btn-danger m-1 rounded-0" type="button"
+										ng-click="reject(value)">Reject</button>
+									<button class="btn btn-secondary m-1 rounded-0" type="button"
+										ng-click="cancel()">Cancel</button>
+								</div>
+							</div>
+						</form>
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
